@@ -1,17 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Header from './component/Header';
+import Hero from './component/Hero';
+import MediaCard from './component/MediaCard';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <h2>this is my first page on react vite application</h2>
-        <h3>welcome to all</h3>
+      <Header />
+      <Hero/>
+      <MediaCard/>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

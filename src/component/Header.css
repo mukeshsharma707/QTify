@@ -1,0 +1,42 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.search_select
+{
+    background-color:darkgray;
+    width: 50px;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: none;
+}
+
+.search_item
+{
+    width: 100%;
+    font-size: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+
+.search_icon
+{
+    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+.nav_search
+{
+    display: flex;
+   
+    width: 620px;
+    height: 40px;
+    border-radius: 5px;
+    justify-content: space-evenly;
+
+}
