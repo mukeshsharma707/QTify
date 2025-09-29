@@ -1,4 +1,4 @@
-import Header from './component/Header';
+import Navbar from './component/Navbar';
 import Hero from './component/Hero';
 import MediaCard from './component/MediaCard';
 import NewAlbum from './component/NewAlbum';
@@ -7,7 +7,7 @@ import Songs from './component/Songs'
 function App() {
   return (
     <>
-      <Header />
+      <Navbar />
       <Hero/>
       <MediaCard/>
       <NewAlbum/>
