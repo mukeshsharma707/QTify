@@ -35,7 +35,6 @@ function Songs() {
 
       setCardData(allSongs);
 
-      // Extract unique genres
       const uniqueGenres = Array.from(
         new Set(allSongs.map((song) => song.genre.key))
       ).map((key) => {
@@ -45,7 +44,7 @@ function Songs() {
 
       setGenres([{ key: 'all', label: 'All' }, ...uniqueGenres]);
 
-      setFilteredSongs(allSongs); // Show all by default
+      setFilteredSongs(allSongs);
     } catch (error) {
       console.error("❌ Error fetching API data:", error);
     }
@@ -55,7 +54,6 @@ function Songs() {
     getApiData();
   }, []);
 
-  // Filter songs when genre changes
   useEffect(() => {
     if (selectedGenre === 'all') {
       setFilteredSongs(cardData);
@@ -85,12 +83,6 @@ function Songs() {
         <Typography sx={{ marginLeft: '10px', fontWeight: 800, color: 'white' }}>
           Songs
         </Typography>
-        {/* <Button
-          style={{ color: '#00BD2B', fontWeight: '800px' }}
-          onClick={() => setIsCollapsed(!isCollapsed)}
-        > */}
-          {/* <b>{isCollapsed ? 'Show All' : 'Collapse'}</b> */}
-        {/* </Button> */}
       </div>
 
       {/* Genre Tabs */}
@@ -118,14 +110,13 @@ function Songs() {
         </Tabs>
       </Box>
 
-      {/* Scroll View or Grid */}
       {isCollapsed ? (
         <div style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
           <IconButton
             onClick={scrollLeft}
             sx={{ color: 'white', position: 'absolute', left: 0, zIndex: 1 }}
           >
-            <ArrowBackIosNewIcon sx={{color:'#00BD2B'}} />
+            <ArrowBackIosNewIcon sx={{ color: '#00BD2B' }} />
           </IconButton>
 
           <div
@@ -192,13 +183,13 @@ function Songs() {
             onClick={scrollRight}
             sx={{ color: 'white', position: 'absolute', right: 0, zIndex: 1 }}
           >
-            <ArrowForwardIosIcon sx={{color:'#00BD2B'}} />
+            <ArrowForwardIosIcon sx={{ color: '#00BD2B' }} />
           </IconButton>
         </div>
       ) : (
         <Grid container spacing={2} sx={{ marginTop: '10px' }}>
-          {visibleCards.map((cardItem) => (
-            <Grid item key={cardItem.id} xs={6} sm={4} md={3}>
+          {visibleCards.map((song) => (
+            <Grid item key={song.id} xs={6} sm={4} md={3}>
               <Card
                 sx={{
                   width: 159,
@@ -210,8 +201,8 @@ function Songs() {
               >
                 <CardMedia
                   sx={{ height: 170, borderTopLeftRadius: '10px', borderTopRightRadius: '10px' }}
-                  image={cardItem.image}
-                  title={cardItem.title}
+                  image={song.image}
+                  title={song.title}
                 />
                 <CardContent sx={{ padding: '8px' }}>
                   <Typography
@@ -224,8 +215,14 @@ function Songs() {
                       color: 'white',
                     }}
                   >
-                    {cardItem.title}
+                    {song.title}
                   </Typography>
+
+                  {/* ✅ Required for Cypress test: visible song title */}
+                  <div className="song-card">
+                    <h3>{song.title}</h3>
+                  </div>
+
                   <Typography variant="caption" sx={{ marginTop: '4px', color: '#ccc' }}>
                     <span
                       style={{
@@ -235,7 +232,7 @@ function Songs() {
                         padding: '5px',
                       }}
                     >
-                      {cardItem.likes} Likes
+                      {song.likes} Likes
                     </span>
                   </Typography>
                 </CardContent>
