@@ -11,7 +11,7 @@ const Header = () => {
      
         alignItems: 'center',
         justifyContent: 'space-between',
-        backgroundColor: 'green',
+        backgroundColor: '#00BD2B',
         padding: '10px',
       }}
     >
@@ -25,7 +25,7 @@ const Header = () => {
             <div class="search_icon"><i class="fa-solid fa-magnifying-glass-location"></i></div>
         </div>
       </div>
-      <div style={{ background: 'green', padding: '5px' }}><Button variant='contained' sx={{background:'black',color:'green'}}>give feedback</Button></div>
+      <div style={{ background: '#00BD2B', padding: '5px' }}><Button variant='contained' sx={{background:'black',color:'#00BD2B'}}>give feedback</Button></div>
     </div>
   );
 };

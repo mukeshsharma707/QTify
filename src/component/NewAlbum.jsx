@@ -53,7 +53,7 @@ function NewAlbum() {
           New Albums
         </Typography>
         <Button
-          style={{ color: 'green', fontWeight: '800px' }}
+          style={{ color: '#00BD2B', fontWeight: '800px' }}
           onClick={() => setIsCollapsed(!isCollapsed)}
         >
           <b>{isCollapsed ? 'Show All' : 'Collapse'}</b>
@@ -67,7 +67,7 @@ function NewAlbum() {
             onClick={scrollLeft}
             sx={{ color: 'white', position: 'absolute', left: 0, zIndex: 1 }}
           >
-            <ArrowBackIosNewIcon />
+            <ArrowBackIosNewIcon sx={{color:'#00BD2B'}}/>
           </IconButton>
 
           {/* Scrollable container */}
@@ -139,7 +139,7 @@ function NewAlbum() {
             onClick={scrollRight}
             sx={{ color: 'white', position: 'absolute', right: 0, zIndex: 1 }}
           >
-            <ArrowForwardIosIcon />
+            <ArrowForwardIosIcon sx={{color:'#00BD2B'}}/>
           </IconButton>
         </div>
       )}
