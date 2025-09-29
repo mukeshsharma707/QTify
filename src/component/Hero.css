@@ -1,0 +1,21 @@
+.hero-section {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  gap: 30px;
+}
+
+.hero-text h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero-image img {
+  max-width: 180px;
+  height: auto;
+}

@@ -1,13 +1,21 @@
+// Hero.jsx
 import React from "react";
-const Hero=()=>{
-    return (
-        <>
-        <div className="hero-section" style={{height:'270px', display:'flex', color:'white', alignItems:'center',justifyContent:'center', background:'black'}}>
-<h1>100 Thousand songs,ad-free<br/>Over thousands podcast episodes</h1>
-<img src="/images/vibrating-headphone.png" alt="Logo" />
+import "./Hero.css";
 
-        </div>
-        </>
-    );
-}
+const Hero = () => {
+  return (
+    <div className="hero-section">
+      <div className="hero-text">
+        <h1>
+          100 Thousand Songs, ad-free <br />
+          Over thousands podcast episodes
+        </h1>
+      </div>
+      <div className="hero-image">
+        <img src="/images/vibrating-headphone.png" alt="Headphones" />
+      </div>
+    </div>
+  );
+};
+
 export default Hero;
