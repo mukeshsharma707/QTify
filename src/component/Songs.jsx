@@ -30,6 +30,7 @@ function Songs() {
     try {
       const result = await axios.get('https://qtify-backend.labs.crio.do/songs');
       const allSongs = result.data;
+      console.log('here is the songs data',allSongs);
 
       setCardData(allSongs);
 
@@ -60,7 +61,7 @@ function Songs() {
     }
   }, [selectedGenre, cardData]);
 
-  const visibleCards = isCollapsed ? filteredSongs.slice(0, 20) : filteredSongs;
+  const visibleCards = isCollapsed ? filteredSongs.slice() : filteredSongs;
 
   const scrollLeft = () => {
     if (scrollRef.current) {
@@ -201,7 +202,7 @@ function Songs() {
                 <CardMedia
                   sx={{ height: 170, borderTopLeftRadius: '10px', borderTopRightRadius: '10px' }}
                   image={song.image}
-                //   title={song.title}
+                
                 />
                 <CardContent sx={{ padding: '8px' }}>
                   <div className="song-card">
