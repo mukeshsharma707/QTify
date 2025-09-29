@@ -3,7 +3,6 @@ import {
   Card,
   CardContent,
   CardMedia,
-  Button,
   Typography,
   Grid,
   IconButton,
@@ -31,7 +30,6 @@ function Songs() {
     try {
       const result = await axios.get('https://qtify-backend.labs.crio.do/songs');
       const allSongs = result.data;
-      console.log('songs data here', allSongs);
 
       setCardData(allSongs);
 
@@ -43,7 +41,6 @@ function Songs() {
       });
 
       setGenres([{ key: 'all', label: 'All' }, ...uniqueGenres]);
-
       setFilteredSongs(allSongs);
     } catch (error) {
       console.error("❌ Error fetching API data:", error);
@@ -110,6 +107,7 @@ function Songs() {
         </Tabs>
       </Box>
 
+      {/* Collapsed (scrollable) view */}
       {isCollapsed ? (
         <div style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
           <IconButton
@@ -187,6 +185,7 @@ function Songs() {
           </IconButton>
         </div>
       ) : (
+        // Expanded (grid) view
         <Grid container spacing={2} sx={{ marginTop: '10px' }}>
           {visibleCards.map((song) => (
             <Grid item key={song.id} xs={6} sm={4} md={3}>
@@ -202,27 +201,12 @@ function Songs() {
                 <CardMedia
                   sx={{ height: 170, borderTopLeftRadius: '10px', borderTopRightRadius: '10px' }}
                   image={song.image}
-                  title={song.title}
+                //   title={song.title}
                 />
                 <CardContent sx={{ padding: '8px' }}>
-                  <Typography
-                    variant="subtitle1"
-                    sx={{
-                      fontWeight: 600,
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                      whiteSpace: 'nowrap',
-                      color: 'white',
-                    }}
-                  >
-                    {song.title}
-                  </Typography>
-
-                  {/* ✅ Required for Cypress test: visible song title */}
                   <div className="song-card">
                     <h3>{song.title}</h3>
                   </div>
-
                   <Typography variant="caption" sx={{ marginTop: '4px', color: '#ccc' }}>
                     <span
                       style={{
